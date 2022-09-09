@@ -7,6 +7,7 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/contents">Contents</Link></li>
             <li><Link to='/journals'>Journals</Link></li>
+            <li><Link to='/postJournal'>Post A Journal</Link></li>
             <li tabIndex={0}>
                 <i>
                     Parent
@@ -20,7 +21,7 @@ const Navbar = () => {
         </>
     )
     return (
-        <div className="navbar bg-base-100 container mx-auto">
+        <div className="navbar bg-base-100 container mx-auto backdrop-blur-md bg-white/30" >
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
