@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { plantationJournalAdded, prefaceAdded, selectAllJournals } from '../../features/journals/journalsSlice';
+import { objectivesAdded, plantationJournalAdded, prefaceAdded, selectAllJournals } from '../../features/journals/journalsSlice';
 import PrefaceModal from '../Modals/SingleParagraphModal';
 
 const PostAJournal = () => {
@@ -29,6 +29,19 @@ const PostAJournal = () => {
                 <div className="w-1/5 py-8">
                     <div className="rounded py-6">
                         {<PrefaceModal title="Plantation Journal" shortTitle="plantJour" action={plantationJournalAdded} />}
+                    </div>
+                </div>
+            </div>
+
+            {/* ----------------- Objectives ------------------- */}
+            <div className="flex">
+                <div className="w-4/5 p-8">
+                    <span className="text-xl font-semibold block">Objectives</span>
+                    <span className="text-gray-600">{currUserJournal.objectives ? 'objectives' : <span className='text-red-500'>Please Update</span>}</span>
+                </div>
+                <div className="w-1/5 py-8">
+                    <div className="rounded py-6">
+                        {<PrefaceModal title="Objectives" shortTitle="objectives" action={objectivesAdded} />}
                     </div>
                 </div>
             </div>
