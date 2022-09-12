@@ -31,7 +31,6 @@ const journalsSlice = createSlice({
                 existingJournal.genPlantationJourIncludes = []
             }
             const newGenPlantationJourIncludes = existingJournal.genPlantationJourIncludes.concat(payload.updatedContent)
-            console.log(newGenPlantationJourIncludes);
             existingJournal.genPlantationJourIncludes = newGenPlantationJourIncludes
         }
     }
