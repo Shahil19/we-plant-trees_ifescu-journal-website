@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { objectivesAdded, plantationJournalAdded, prefaceAdded, selectAllJournals } from '../../features/journals/journalsSlice';
+import { genPlantationJourIncludes, objectivesAdded, plantationJournalAdded, prefaceAdded, selectAllJournals } from '../../features/journals/journalsSlice';
 import PrefaceModal from '../Modals/SingleParagraphModal';
 
 const PostAJournal = () => {
@@ -51,14 +51,14 @@ const PostAJournal = () => {
                 </div>
             </div>
 
-            {/* ----------------- Generally plantation journal includes ------------------- */}
+            {/* ----------------- Generally plantation journal includes shown------------------- */}
             <div className="flex">
                 <div className="w-4/5 p-8">
                     <span className="text-xl font-semibold block">Generally plantation journal includes</span>
-                    <span className="text-gray-600">{currUserJournal.objectives ? <ul>{renderObjectives}</ul> : <span className='text-red-500'>Please Update</span>}</span>
+                    <span className="text-gray-600">{currUserJournal.genPlantationJourIncludes ? {} : <span className='text-red-500'>Please Update</span>}</span>
                 </div>
                 <div className="w-1/5 py-8">
-                    {<PrefaceModal title="Generally plantation journal includes" shortTitle="genPlantationJourIncludes" action={objectivesAdded} />}
+                    {<PrefaceModal title="Generally plantation journal includes" shortTitle="genPlantationJourIncludes" action={genPlantationJourIncludes} />}
                 </div>
             </div>
         </div>
