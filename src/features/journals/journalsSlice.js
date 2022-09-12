@@ -17,24 +17,23 @@ const journalsSlice = createSlice({
             const existingPost = state.journals.find(journal => journal.userId === payload.userId)
             existingPost.plantationJournal = payload.updatedContent
         },
+        objectivesAdd: (state, { payload }) => {
+            const existingPost = state.journals.find(journal => journal.userId === payload.userId)
+            existingPost.objectives = []
+        },
+
         objectivesAdded: (state, { payload }) => {
             const existingPost = state.journals.find(journal => journal.userId === payload.userId)
-            // existingPost.objectives = []
-            // const objectives = existingPost.objectives
-            // const { updatedContent } = payload
-            // console.log(objectives);
-            // objectives.concat(updatedContent)
             if (!existingPost.objectives) {
                 existingPost.objectives = []
-                const newObjectives = existingPost.objectives.concat(payload.updatedContent)
-                existingPost.objectives = newObjectives
             }
-
+            const newObjectives = existingPost.objectives.concat(payload.updatedContent)
+            existingPost.objectives = newObjectives
         },
     }
 })
 
 export const selectAllJournals = store => store.journals.journals
-export const { prefaceAdded, plantationJournalAdded, objectivesAdded } = journalsSlice.actions
+export const { prefaceAdded, plantationJournalAdded, objectivesAdd, objectivesAdded } = journalsSlice.actions
 export default journalsSlice.reducer
 

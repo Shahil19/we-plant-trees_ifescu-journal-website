@@ -16,11 +16,14 @@ export default function PrefaceModal({ title, shortTitle, action }) {
         setIsOpen(true)
     }
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
     const onSubmit = data => {
         const updatedContent = data[shortTitle]
         dispatch(action({ userId: 1, updatedContent }))
+        reset()
     };
+
 
     return (
         <>
@@ -83,7 +86,8 @@ export default function PrefaceModal({ title, shortTitle, action }) {
                                                     </div>
                                                     <button
                                                         onClick={closeModal}
-                                                        className='inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2' type="submit">Update {title}</button>
+                                                        className='inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
+                                                        type="submit">Update {title}</button>
                                                 </form>
 
                                             </div>
