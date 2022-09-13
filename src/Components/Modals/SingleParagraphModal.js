@@ -20,8 +20,7 @@ export default function PrefaceModal({ title, shortTitle, action }) {
 
     const onSubmit = data => {
         const updatedContent = data[shortTitle]
-        console.log(data);
-        dispatch(action({ userId: 1, updatedContent }))
+        dispatch(action({ userId: 1, updatedContent, shortTitle }))
         reset()
     };
 

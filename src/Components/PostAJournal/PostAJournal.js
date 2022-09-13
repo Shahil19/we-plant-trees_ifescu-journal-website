@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { genPlantationJourIncludes, objectivesAdded, plantationJournalAdded, prefaceAdded, selectAllJournals } from '../../features/journals/journalsSlice';
+import { characteristicsTheSite, genPlantationJourIncludes, objectivesAdded, plantationJournalAdded, prefaceAdded, selectAllJournals } from '../../features/journals/journalsSlice';
 import PrefaceModal from '../Modals/SingleParagraphModal';
 
 const PostAJournal = () => {
@@ -26,28 +26,28 @@ const PostAJournal = () => {
                 <tbody>
                     <tr className='hover'>
                         <td className='font-bold'>Topography:</td>
-                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
-                        <td>{<PrefaceModal title="Slope" shortTitle="typography" action={genPlantationJourIncludes} />}</td>
+                        {currUserJournal.characteristicsOfTheSite?.topography ? <td>{currUserJournal.characteristicsOfTheSite.topography}</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Topography" shortTitle="topography" action={characteristicsTheSite} />}</td>
                     </tr>
                     <tr className="hover">
                         <td className='font-bold'>Aspect:</td>
-                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
-                        <td>{<PrefaceModal title="Slope" shortTitle="aspect" action={genPlantationJourIncludes} />}</td>
+                        {currUserJournal.characteristicsOfTheSite?.aspect ? <td>{currUserJournal.characteristicsOfTheSite.aspect}</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Aspect" shortTitle="aspect" action={characteristicsTheSite} />}</td>
                     </tr>
                     <tr className="hover">
                         <td className='font-bold'>Slope:</td>
-                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
-                        <td>{<PrefaceModal title="Slope" shortTitle="slope" action={genPlantationJourIncludes} />}</td>
+                        {currUserJournal.characteristicsOfTheSite?.slope ? <td>{currUserJournal.characteristicsOfTheSite.slope}</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Slope" shortTitle="slope" action={characteristicsTheSite} />}</td>
                     </tr>
                     <tr className="hover">
                         <td className='font-bold'>Drainage:</td>
-                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
-                        <td>{<PrefaceModal title="Drainage" shortTitle="drainage" action={genPlantationJourIncludes} />}</td>
+                        {currUserJournal.characteristicsOfTheSite?.drainage ? <td>{currUserJournal.characteristicsOfTheSite.drainage}</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Drainage" shortTitle="drainage" action={characteristicsTheSite} />}</td>
                     </tr>
                     <tr className='hover'>
                         <td className='font-bold'>Soil Type:</td>
-                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
-                        <td>{<PrefaceModal title="Soil Type:" shortTitle="soilType" action={genPlantationJourIncludes} />}</td>
+                        {currUserJournal.characteristicsOfTheSite?.soilType ? <td>{currUserJournal.characteristicsOfTheSite.soilType}</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Soil Type:" shortTitle="soilType" action={characteristicsTheSite} />}</td>
                     </tr>
                 </tbody>
             </table>

@@ -32,11 +32,18 @@ const journalsSlice = createSlice({
             }
             const newGenPlantationJourIncludes = existingJournal.genPlantationJourIncludes.concat(payload.updatedContent)
             existingJournal.genPlantationJourIncludes = newGenPlantationJourIncludes
-        }
+        },
+        characteristicsTheSite: (state, { payload }) => {
+            const existingJournal = state.journals.find(journal => journal.userId === payload.userId)
+            if (!existingJournal.characteristicsOfTheSite) {
+                existingJournal.characteristicsOfTheSite = {}
+            }
+            existingJournal.characteristicsOfTheSite[payload.shortTitle] = payload.updatedContent
+        },
     }
 })
 
 export const selectAllJournals = store => store.journals.journals
-export const { prefaceAdded, plantationJournalAdded, objectivesAdd, objectivesAdded, genPlantationJourIncludes } = journalsSlice.actions
+export const { prefaceAdded, plantationJournalAdded, objectivesAdd, objectivesAdded, genPlantationJourIncludes, characteristicsTheSite } = journalsSlice.actions
 export default journalsSlice.reducer
 
