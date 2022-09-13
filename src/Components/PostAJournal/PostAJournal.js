@@ -20,6 +20,42 @@ const PostAJournal = () => {
             key={i}>{li}</li>
     ))
 
+    const characteristicsOfTheSite = <>
+        <div className="overflow-x-auto">
+            <table className="table w-full">
+                <tbody>
+                    <tr className='hover'>
+                        <td className='font-bold'>Topography:</td>
+                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Slope" shortTitle="typography" action={genPlantationJourIncludes} />}</td>
+                    </tr>
+                    <tr className="hover">
+                        <td className='font-bold'>Aspect:</td>
+                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Slope" shortTitle="aspect" action={genPlantationJourIncludes} />}</td>
+                    </tr>
+                    <tr className="hover">
+                        <td className='font-bold'>Slope:</td>
+                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Slope" shortTitle="slope" action={genPlantationJourIncludes} />}</td>
+                    </tr>
+                    <tr className="hover">
+                        <td className='font-bold'>Drainage:</td>
+                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Drainage" shortTitle="drainage" action={genPlantationJourIncludes} />}</td>
+                    </tr>
+                    <tr className='hover'>
+                        <td className='font-bold'>Soil Type:</td>
+                        {currUserJournal.characteristicsOfTheSite ? <td>IsThere</td> : <td>Please Update</td>}
+                        <td>{<PrefaceModal title="Soil Type:" shortTitle="soilType" action={genPlantationJourIncludes} />}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </>
+
+
+
 
     return (
         <div style={{ backgroundColor: "#F4F5F7" }} className="h-full">
@@ -65,6 +101,26 @@ const PostAJournal = () => {
                 </div>
                 <div className="w-1/5 py-8">
                     {<PrefaceModal title="Generally plantation journal includes" shortTitle="genPlantationJourIncludes" action={genPlantationJourIncludes} />}
+                </div>
+            </div>
+
+            {/* ----------------- Short description of plantation Site------------------- */}
+            <div className='border-b-2'>
+                <span className="text-xl font-semibold block px-8 text-center">Short description of plantation Site</span>
+                <div className="flex border-b-2 border-dashed">
+                    <div className="w-4/5 px-8 p-8">
+                        <span className="text-base font-semibold block ">Location of the Site</span>
+                        <span className="text-gray-600">{currUserJournal.genPlantationJourIncludes ? <ul>{renderGenPlantationJourIncludes}</ul> : <span className='text-red-500'>Please Update</span>}</span>
+                    </div>
+                    <div className="w-1/5 py-8">
+                        {<PrefaceModal title="Generally plantation journal includes" shortTitle="genPlantationJourIncludes" action={genPlantationJourIncludes} />}
+                    </div>
+                </div>
+                <div className="flex ">
+                    <div className="w-full sm:px-8">
+                        <span className="text-base font-semibold block mb-4 pt-8">Characteristics Of The Site</span>
+                        <span className="text-gray-600">{characteristicsOfTheSite}</span>
+                    </div>
                 </div>
             </div>
         </div>
