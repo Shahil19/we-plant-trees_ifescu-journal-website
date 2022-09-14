@@ -107,7 +107,7 @@ const PostAJournal = () => {
             {/* ----------------- Short description of plantation Site------------------- */}
             <div className='border-b-2'>
                 <span className="text-xl font-semibold block px-8 text-center">Short description of plantation Site</span>
-                <div className="flex border-b-2 border-dashed">
+                <div className="flex border-dashed">
                     <div className="w-4/5 px-8 p-8">
                         <span className="text-base font-semibold block ">Location of the Site</span>
                         <span className="text-gray-600">{currUserJournal.genPlantationJourIncludes ? <ul>{renderGenPlantationJourIncludes}</ul> : <span className='text-red-500'>Please Update</span>}</span>
