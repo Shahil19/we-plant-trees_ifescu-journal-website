@@ -43,7 +43,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {user ? <button onClick={() => { signOut(auth) }} className='btn btn-ghost'>Logout</button> : <div className='btn-group'><Link to='/login' className="btn btn-sm btn-active" >Login</Link> <Link to='/signup' className="btn btn-sm">SignUp</Link></div>}
+                {user ? <button onClick={() => { signOut(auth) }} className='btn btn-ghost'>Logout</button> : <div className='btn-group'><Link to='/login' className="btn btn-sm btn-active mr-1" >Login</Link> <Link to='/signup' className="btn btn-sm">SignUp</Link></div>}
             </div>
         </div>
     );
