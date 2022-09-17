@@ -9,6 +9,9 @@ const Login = () => {
     const [signInWithGoogle] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
     ] = useSignInWithEmailAndPassword(auth);
 
     const onSubmit = data => {
@@ -20,6 +23,7 @@ const Login = () => {
     return (
         <section className="bg-white">
             <h2 className='text-3xl font-semibold text-center'>Please Login</h2>
+            {error && <h2 className='text-xl font-light text-red-500 text-center'>{error.message}</h2>}
             <main
                 className="flex items-center justify-center px-8  sm:px-12 lg:col-span-7  lg:px-16 xl:col-span-6"
             >

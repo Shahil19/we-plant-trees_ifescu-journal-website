@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import useNewUser from '../../hooks/useNewUser';
 
 const SignUp = () => {
     const { register, handleSubmit, reset } = useForm();
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [
         createUserWithEmailAndPassword,
-        loading,
-    ] = useCreateUserWithEmailAndPassword(auth);
+        eUser,
+        eLoading,
+        eError,
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [passErr, setPassErr] = useState('')
+    const navigate = useNavigate()
 
+    // POST new user to database when new user comes in
+    const postUserURL = 'http://localhost:5000/user'
+    useNewUser(postUserURL, eUser || gUser)
+
+    // creating new user with email and password
     const onSubmit = data => {
         const { email, password, confirmPassword } = data
         if (password === confirmPassword) {
@@ -24,13 +33,17 @@ const SignUp = () => {
         reset()
     };
 
-    if (loading) {
-        return <h1 className='text-4xl font-bold'>Loading...</h1>
+    // navigating to homepage
+    if (gUser || eUser) {
+        navigate('/')
+
     }
 
     return (
         <section className="bg-white">
             <h2 className='text-3xl font-semibold text-center'>Please Sign Up</h2>
+            {eError && <h2 className='text-xl font-light text-red-500 text-center'>{eError.message}</h2>}
+            {gError && <h2 className='text-xl font-light text-red-500 text-center'>{gError.message}</h2>}
             <main
                 className="flex items-center justify-center px-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6"
             >
